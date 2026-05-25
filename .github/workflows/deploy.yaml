@@ -1,0 +1,15 @@
+name: Workflow for deploying to production
+
+on: [push, workflow_dispatch]
+
+jobs: 
+  test-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing working directory
+        run: | 
+          pwd
+          ls -la
+          node -v
+          git -v
+          echo $GITHUB_WORKFLOW
