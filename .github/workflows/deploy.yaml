@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: printing working directory
+        uses: actions/checkout@v4   #* to copy the code to the runner
+      - name: printing environment variables
         run: | 
           pwd
           ls -la
