@@ -6,12 +6,18 @@ jobs:
   test-code:
     runs-on: ubuntu-latest
     steps:
-      - name: printing working directory
+      - name: copying code to the runner
         uses: actions/checkout@v4   #* to copy the code to the runner
-      - name: printing environment variables
-        run: | 
-          pwd
-          ls -la
-          node -v
-          git -v
-          echo $GITHUB_WORKFLOW
+      # - name: printing environment variables
+      #   run: | 
+      #     pwd
+      #     ls -la
+      #     node -v
+      #     git -v
+      #     echo $GITHUB_WORKFLOW
+      - name: installing nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.12.0
+      - name: checking node version
+        run: node -v
