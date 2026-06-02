@@ -19,5 +19,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.12.0
-      - name: checking node version
-        run: node -v
+      # - name: checking node version
+      #   run: node -v
+
+      - name: installing dependencies
+        run: npm install --frozen-lockfile # * frozen lockfile ensures that the exact versions in package-lock.json are installed for consistency across environments
+
+      - name: running tests
+        run: npm run start
