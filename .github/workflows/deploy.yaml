@@ -32,4 +32,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: building the code
-        run: npm run build
+        run: tsc
