@@ -26,7 +26,7 @@ jobs:
         run: npm install --frozen-lockfile # * frozen lockfile ensures that the exact versions in package-lock.json are installed for consistency across environments
 
       - name: running tests
-        run: npm run start
+        run: npm run abc
 
   build-code:
     runs-on: ubuntu-latest
