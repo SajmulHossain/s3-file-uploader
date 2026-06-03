@@ -27,3 +27,9 @@ jobs:
 
       - name: running tests
         run: npm run start
+
+  build-code: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: building the code
+        run: npm run build
