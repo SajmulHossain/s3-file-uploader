@@ -2,14 +2,14 @@ name: Workflow for deploying to production
 
 on: [push, workflow_dispatch]
 
-jobs: 
+jobs:
   test-code:
     runs-on: ubuntu-latest
     steps:
       - name: copying code to the runner
-        uses: actions/checkout@v4   #* to copy the code to the runner
+        uses: actions/checkout@v4 #* to copy the code to the runner
       # - name: printing environment variables
-      #   run: | 
+      #   run: |
       #     pwd
       #     ls -la
       #     node -v
@@ -28,8 +28,22 @@ jobs:
       - name: running tests
         run: npm run start
 
-  build-code: 
+  build-code:
     runs-on: ubuntu-latest
     steps:
+      - name: installing nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.12.0
+
+      - name: installing dependencies
+        run: npm install --frozen-lockfile
+
       - name: building the code
-        run: tsc
+        run: npm run dev
+
+  deploy-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploging the code
+        run: echo "Deploying the code to production environment"
